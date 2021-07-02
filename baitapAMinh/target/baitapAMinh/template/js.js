@@ -44,7 +44,6 @@ function successHandler() {
         url: "/customers",
         //xử lý khi thành công
         success: function (data) {
-            // hien thi danh sach o da
             let content = '    <tr class="tr">\n' +
                 '        <td>#</td>\n' +
                 '        <td>Name</td>\n' +
@@ -91,7 +90,7 @@ function successHandler() {
                         $.ajax({
                             type: "DELETE",
                             //tên API
-                            url: `/customers/${id}`,
+                            url: '/customers/'+id,
                             context:this,
                             //xử lý khi thành công
                             success: function (data) {
@@ -153,9 +152,9 @@ function editCustomer(event) {
         type: "POST",
         data: JSON.stringify(Customer),
         //tên API
-        url: "/customers/edit/"+id,
+        url: "/customers/edi/"+id,
         //xử lý khi thành công
-        success:successHandler
+        success: successHandler
     });
     //chặn sự kiện mặc định của thẻ
     event.preventDefault();
@@ -227,8 +226,4 @@ $(document).ready(function() {
             }
         })
     })
-})
-// validate
-$(function (){
-
 })
